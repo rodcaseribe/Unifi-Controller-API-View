@@ -17,17 +17,27 @@
         foreach( $MacsAPS as $valorMAC ) {
             $retornoAPI = RequestGetAPIController($urlArgAPI,$valorMAC);
             $obj = json_decode($retornoAPI,  true);
-            echo '<div class="col-sm-6">';
+			echo '<div class="col-sm-6">';
             echo '<div class="card">';
             echo '<div class="card-body">';
             echo '<p class="card-text">Endereço MAC:'.($obj['data']['0']['mac']).'</p>';
-            echo '<p class="card-text">SSID: '.($obj['data']['0']['essid']).'</p>';
-            echo '<p class="card-text">Endereço IP:'.($obj['data']['0']['ip']).'</p>';
-            echo '<p class="card-text">Sinal Db: '.($obj['data']['0']['signal']).'</p>';
-            echo '<p class="card-text">Canal: '.($obj['data']['0']['channel']).'</p>';
-            echo '<p class="card-text">Uptime: '.($obj['data']['0']['_uptime_by_uap']).'</p>';
-            echo '</div></div></div>';
-        }
+			if(isset($obj['data']['0']['essid'])){
+				echo '<p class="card-text">SSID: '.($obj['data']['0']['essid']).'</p>';
+			}
+			if(isset($obj['data']['0']['ip'])){
+				echo '<p class="card-text">Endereço IP:'.($obj['data']['0']['ip']).'</p>';
+			}
+			if(isset($obj['data']['0']['signal'])){
+				echo '<p class="card-text">Sinal Db: '.($obj['data']['0']['signal']).'</p>';
+			}
+			if(isset($obj['data']['0']['channel'])){
+				echo '<p class="card-text">Canal: '.($obj['data']['0']['channel']).'</p>';
+			}
+			if(isset($obj['data']['0']['_uptime_by_uap'])){
+				echo '<p class="card-text">Uptime: '.($obj['data']['0']['_uptime_by_uap']).'</p>';
+			}
+			echo '</div></div></div>';            
+		}
     ?>
 </body>
 </html>
