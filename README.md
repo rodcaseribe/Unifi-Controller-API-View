@@ -3,7 +3,7 @@
  
 # Fluxo de Autenticação e chamada da API da unifi Controller
 
-# -Requisição CURL para autenticação POST ( data binary = RAW debugando com Postaman )
+# -Requisição CURL para autenticação POST ( data binary = RAW debugando com Postman )
 curl 'https://XXX.XXX.XXX.XXX:8443/api/login' --data-binary '{"username":"USUARIO","password":"SENHA","strict":true}' --insecure -c cookies.txt 
 
 # -Requisição GET para coleta de informações ( Coleta e passagem de cookie opr argumento no Header da requisição GET )
