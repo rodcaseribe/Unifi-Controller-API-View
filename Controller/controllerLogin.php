@@ -41,7 +41,7 @@
             if ($respostaCookie != NULL){
                 $cookieCapturado = processarCookie($respostaCookie['caminhoCookie']);
                 unlink($respostaCookie['caminhoCookie']);
-                setcookie("CookieUnifi", $cookieCapturado, time() + (36000), "/"); // 86400 = 1 day
+                setcookie("CookieUnifi", $cookieCapturado, time() + (4000), "/"); // 86400 = 1 day
                 echo json_encode(array("validador" => 0, "mensagem" => $respostaCookie['respostaCurl']));
             }
         }
